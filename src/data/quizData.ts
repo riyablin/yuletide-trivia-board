@@ -52,10 +52,42 @@ const round1Categories: Category[] = [
     id: 'cat-1-2',
     name: 'Ivanzolo2004 или альтушка', // ← Название категории
     questions: [
-      { id: 'q-1-2-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
-      { id: 'q-1-2-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
-      { id: 'q-1-2-3', question: 'Ваш вопрос 3', answer: 'Ваш ответ', points: 300, isPlayed: false },
-      { id: 'q-1-2-4', question: 'Ваш вопрос 4', answer: 'Ваш ответ', points: 400, isPlayed: false },
+      {
+        id: 'q-1-2-1',
+        question: 'Иван золо 100',
+        answer: 'Ответ иван золо 100',
+        points: 100,
+        isPlayed: false,
+        questionImage: '/images/round1/ivanzolo/100/иван золо 100 вопрос.jpeg',
+        answerImage: '/images/round1/ivanzolo/100/иван золо 100 ответ.jpeg'
+      },
+      {
+        id: 'q-1-2-2',
+        question: 'Иван золо 200',
+        answer: 'Ответ иван золо 200',
+        points: 200,
+        isPlayed: false,
+        questionImage: '/images/round1/ivanzolo/200/иван золо 200 вопрос.jpeg',
+        answerImage: '/images/round1/ivanzolo/200/иван золо 200 ответ.avif'
+      },
+      {
+        id: 'q-1-2-3',
+        question: 'Иван золо 300',
+        answer: 'Ответ иван золо 300',
+        points: 300,
+        isPlayed: false,
+        questionImage: '/images/round1/ivanzolo/300/иван золо 300 вопрос.jpeg',
+        answerImage: '/images/round1/ivanzolo/300/иван золо 300 ответ.webp'
+      },
+      {
+        id: 'q-1-2-4',
+        question: 'Иван золо 400',
+        answer: 'Ответ иван золо 400',
+        points: 400,
+        isPlayed: false,
+        questionImage: '/images/round1/ivanzolo/400/иван золо 400 вопрос.jpeg',
+        answerImage: '/images/round1/ivanzolo/400/иван золо 400 ответ.jpeg'
+      },
     ],
   },
   {
@@ -82,10 +114,38 @@ const round1Categories: Category[] = [
     id: 'cat-1-5',
     name: 'Новогодние фильмы', // ← Название категории
     questions: [
-      { id: 'q-1-5-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
-      { id: 'q-1-5-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
-      { id: 'q-1-5-3', question: 'Ваш вопрос 3', answer: 'Ваш ответ', points: 300, isPlayed: false },
-      { id: 'q-1-5-4', question: 'Ваш вопрос 4', answer: 'Ваш ответ', points: 400, isPlayed: false },
+      {
+        id: 'q-1-5-1',
+        question: 'Угадай фильм',
+        answer: 'Один дома (Home Alone)',
+        points: 100,
+        isPlayed: false,
+        questionImage: '/images/round1/films/100/Home Alone 1990.jpg'
+      },
+      {
+        id: 'q-1-5-2',
+        question: 'Угадай фильм',
+        answer: 'Ирония судьбы',
+        points: 200,
+        isPlayed: false,
+        questionImage: '/images/round1/films/200/Ironiya Sudby 1975.jpg'
+      },
+      {
+        id: 'q-1-5-3',
+        question: 'Угадай фильм',
+        answer: 'Ёлки',
+        points: 300,
+        isPlayed: false,
+        questionImage: '/images/round1/films/300/Yolki 2010 Part 1.jpg'
+      },
+      {
+        id: 'q-1-5-4',
+        question: 'Угадай фильм',
+        answer: 'Реальная любовь (Love Actually)',
+        points: 400,
+        isPlayed: false,
+        questionImage: '/images/round1/films/400/Love Actually 2003.jpg'
+      },
     ],
   },
 ];
