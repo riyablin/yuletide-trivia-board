@@ -72,12 +72,11 @@ const round1Categories: Category[] = [
       },
       {
         id: 'q-1-2-3',
-        question: 'Иван золо 300',
-        answer: 'Ответ иван золо 300',
+        question: 'БУСТЕР',
+        answer: 'Бустер!',
         points: 300,
         isPlayed: false,
-        questionImage: '/images/round1/ivanzolo/300/иван золо 300 вопрос.jpeg',
-        answerImage: '/images/round1/ivanzolo/300/иван золо 300 ответ.webp'
+        questionImage: '/images/round1/Buster.png'
       },
       {
         id: 'q-1-2-4',
@@ -94,10 +93,42 @@ const round1Categories: Category[] = [
     id: 'cat-1-3',
     name: 'Мемный фон', // ← Название категории
     questions: [
-      { id: 'q-1-3-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
-      { id: 'q-1-3-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
-      { id: 'q-1-3-3', question: 'Ваш вопрос 3', answer: 'Ваш ответ', points: 300, isPlayed: false },
-      { id: 'q-1-3-4', question: 'Ваш вопрос 4', answer: 'Ваш ответ', points: 400, isPlayed: false },
+      {
+        id: 'q-1-3-1',
+        question: 'Угадай мем',
+        answer: 'Afghan War',
+        points: 100,
+        isPlayed: false,
+        questionImage: '/images/round1/memes/100/Afghan War Search Result.png',
+        answerVideo: '/images/round1/memes/100/5266291172_1_tiktok_685bdb3132e855_99483035.mp4'
+      },
+      {
+        id: 'q-1-3-2',
+        question: 'Угадай мем',
+        answer: 'Fabric',
+        points: 200,
+        isPlayed: false,
+        questionImage: '/images/round1/memes/200/Fabric search result.png',
+        answerVideo: '/images/round1/memes/200/7072147031_1_tiktok_685c75eaba0207_78789667.mp4'
+      },
+      {
+        id: 'q-1-3-3',
+        question: 'Угадай мем',
+        answer: 'Добкин 2005',
+        points: 300,
+        isPlayed: false,
+        questionImage: '/images/round1/memes/300/Добкин 2005.png',
+        answerVideo: '/images/round1/memes/300/371411361_1_tiktok_69282719092671_28921800 2.mov'
+      },
+      {
+        id: 'q-1-3-4',
+        question: 'Угадай мем',
+        answer: 'Мем 400',
+        points: 400,
+        isPlayed: false,
+        questionImage: '/images/round1/memes/400/Screenshot 2025-12-24 at 20.22.08.png',
+        answerVideo: '/images/round1/memes/400/5229237927_1_tiktok_6861162ce27bb4_20131366.mp4'
+      },
     ],
   },
   {

@@ -6,6 +6,8 @@ export interface Question {
   isPlayed: boolean;
   questionImage?: string; // Путь к картинке-вопросу
   answerImage?: string;   // Путь к картинке-ответу
+  answerVideo?: string;   // Путь к видео-ответу
+  isBuster?: boolean;     // Флаг что это бустер
 }
 
 export interface Category {

@@ -69,7 +69,14 @@ export const QuestionModal = ({
         {showAnswer && (
           <div className="p-6 md:p-8 bg-primary/5 border-t-4 border-primary animate-fade-in">
             <p className="text-sm text-muted-foreground text-center mb-2">Ответ:</p>
-            {question.answerImage ? (
+            {question.answerVideo ? (
+              <video
+                src={question.answerVideo}
+                controls
+                autoPlay
+                className="max-w-full max-h-[60vh] rounded-lg mx-auto"
+              />
+            ) : question.answerImage ? (
               <img
                 src={question.answerImage}
                 alt="Ответ"
