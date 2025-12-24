@@ -38,7 +38,7 @@ const round1Categories: Category[] = [
   },
   {
     id: 'cat-1-4',
-    name: 'Цитаты Арестовича', // ← Название категории
+    name: 'Цитаты Кличко', // ← Название категории
     questions: [
       { id: 'q-1-4-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
       { id: 'q-1-4-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
