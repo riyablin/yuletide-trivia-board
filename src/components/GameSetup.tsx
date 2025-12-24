@@ -7,10 +7,10 @@ import { Plus, Minus, Sparkles, TreePine } from 'lucide-react';
 import { PixelStar } from './PixelStar';
 
 interface GameSetupProps {
-  onStartEditor: (teams: Team[]) => void;
+  onStartGame: (teams: Team[]) => void;
 }
 
-export const GameSetup = ({ onStartEditor }: GameSetupProps) => {
+export const GameSetup = ({ onStartGame }: GameSetupProps) => {
   const [teamCount, setTeamCount] = useState(2);
   const [teamNames, setTeamNames] = useState<string[]>(['Команда 1', 'Команда 2']);
 
@@ -38,7 +38,7 @@ export const GameSetup = ({ onStartEditor }: GameSetupProps) => {
       score: 0,
       color: TEAM_COLORS[i],
     }));
-    onStartEditor(teams);
+    onStartGame(teams);
   };
 
   return (
@@ -65,9 +65,6 @@ export const GameSetup = ({ onStartEditor }: GameSetupProps) => {
         <h2 className="font-display text-xl md:text-3xl text-accent">
           ВИКТОРИНА
         </h2>
-        <p className="text-muted-foreground mt-4 text-lg">
-          Создай свою игру в стиле Jeopardy!
-        </p>
       </div>
 
       <Card className="w-full max-w-lg p-6 md:p-8 animate-slide-up shadow-xl" style={{ animationDelay: '0.1s' }}>
@@ -127,7 +124,7 @@ export const GameSetup = ({ onStartEditor }: GameSetupProps) => {
             size="lg"
           >
             <Sparkles className="w-5 h-5" />
-            СОЗДАТЬ ИГРУ
+            НАЧАТЬ ИГРУ
             <Sparkles className="w-5 h-5" />
           </Button>
         </div>

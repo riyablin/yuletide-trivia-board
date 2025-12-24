@@ -1,18 +1,26 @@
 import { useState, useCallback } from 'react';
-import { GameState, Team, Round, Question, Category, createEmptyRound } from '@/types/game';
+import { GameState, Team, Round, Question, Category } from '@/types/game';
 import { GameSetup } from './GameSetup';
-import { GameEditor } from './GameEditor';
 import { GameBoard } from './GameBoard';
 import { QuestionModal } from './QuestionModal';
 import { FinalRound } from './FinalRound';
 import { GameResults } from './GameResults';
+import { QUIZ_ROUNDS } from '@/data/quizData';
+
+// Функция для сброса isPlayed во всех вопросах
+const resetRounds = (): Round[] => {
+  return QUIZ_ROUNDS.map(round => ({
+    ...round,
+    categories: round.categories.map(cat => ({
+      ...cat,
+      questions: cat.questions.map(q => ({ ...q, isPlayed: false })),
+    })),
+  }));
+};
 
 const initialState: GameState = {
   teams: [],
-  rounds: [
-    createEmptyRound(1, 1),
-    createEmptyRound(2, 2),
-  ],
+  rounds: resetRounds(),
   currentRound: 0,
   currentQuestion: null,
   currentCategory: null,
@@ -25,21 +33,11 @@ const initialState: GameState = {
 export const JeopardyGame = () => {
   const [gameState, setGameState] = useState<GameState>(initialState);
 
-  const handleStartEditor = useCallback((teams: Team[]) => {
+  const handleStartGame = useCallback((teams: Team[]) => {
     setGameState(prev => ({
       ...prev,
       teams,
-      gamePhase: 'editor',
-    }));
-  }, []);
-
-  const handleUpdateRounds = useCallback((rounds: Round[]) => {
-    setGameState(prev => ({ ...prev, rounds }));
-  }, []);
-
-  const handleStartGame = useCallback(() => {
-    setGameState(prev => ({
-      ...prev,
+      rounds: resetRounds(),
       gamePhase: 'playing',
       currentRound: 0,
     }));
@@ -186,7 +184,10 @@ export const JeopardyGame = () => {
   }, []);
 
   const handleNewGame = useCallback(() => {
-    setGameState(initialState);
+    setGameState({
+      ...initialState,
+      rounds: resetRounds(),
+    });
   }, []);
 
   const currentRound = gameState.rounds[gameState.currentRound];
@@ -194,17 +195,7 @@ export const JeopardyGame = () => {
   return (
     <>
       {gameState.gamePhase === 'setup' && (
-        <GameSetup onStartEditor={handleStartEditor} />
-      )}
-
-      {gameState.gamePhase === 'editor' && (
-        <GameEditor
-          rounds={gameState.rounds}
-          teams={gameState.teams}
-          onUpdateRounds={handleUpdateRounds}
-          onStartGame={handleStartGame}
-          onBack={handleBackToSetup}
-        />
+        <GameSetup onStartGame={handleStartGame} />
       )}
 
       {gameState.gamePhase === 'playing' && currentRound && (
