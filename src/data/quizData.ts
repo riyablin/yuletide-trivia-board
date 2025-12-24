@@ -8,52 +8,52 @@ import { Round, Category, Question, DEFAULT_POINTS } from '@/types/game';
 const round1Categories: Category[] = [
   {
     id: 'cat-1-1',
-    name: 'Новый Год', // ← Название категории
+    name: 'Каламбуры', // ← Название категории
     questions: [
-      { id: 'q-1-1-1', question: 'В какой стране Новый год празднуют по лунному календарю?', answer: 'Китай', points: 100, isPlayed: false },
-      { id: 'q-1-1-2', question: 'Какое дерево традиционно наряжают на Новый год?', answer: 'Ёлка', points: 200, isPlayed: false },
-      { id: 'q-1-1-3', question: 'Как зовут внучку Деда Мороза?', answer: 'Снегурочка', points: 300, isPlayed: false },
-      { id: 'q-1-1-4', question: 'В каком году Пётр I перенёс празднование Нового года на 1 января?', answer: '1700', points: 400, isPlayed: false },
+      { id: 'q-1-1-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
+      { id: 'q-1-1-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
+      { id: 'q-1-1-3', question: 'Ваш вопрос 3', answer: 'Ваш ответ', points: 300, isPlayed: false },
+      { id: 'q-1-1-4', question: 'Ваш вопрос 4', answer: 'Ваш ответ', points: 400, isPlayed: false },
     ],
   },
   {
     id: 'cat-1-2',
-    name: 'Фильмы', // ← Название категории
+    name: 'Ivanzolo2004 или альтушка', // ← Название категории
     questions: [
-      { id: 'q-1-2-1', question: 'Какой фильм показывают каждый Новый год в России?', answer: 'Ирония судьбы', points: 100, isPlayed: false },
-      { id: 'q-1-2-2', question: 'В каком городе происходит действие фильма "Один дома"?', answer: 'Чикаго', points: 200, isPlayed: false },
-      { id: 'q-1-2-3', question: 'Кто играет главную роль в фильме "Гринч"?', answer: 'Джим Керри', points: 300, isPlayed: false },
-      { id: 'q-1-2-4', question: 'Назовите режиссёра фильма "Ирония судьбы"', answer: 'Эльдар Рязанов', points: 400, isPlayed: false },
+      { id: 'q-1-2-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
+      { id: 'q-1-2-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
+      { id: 'q-1-2-3', question: 'Ваш вопрос 3', answer: 'Ваш ответ', points: 300, isPlayed: false },
+      { id: 'q-1-2-4', question: 'Ваш вопрос 4', answer: 'Ваш ответ', points: 400, isPlayed: false },
     ],
   },
   {
     id: 'cat-1-3',
-    name: 'Музыка', // ← Название категории
+    name: 'Мемный фон', // ← Название категории
     questions: [
-      { id: 'q-1-3-1', question: 'Кто исполняет песню "В лесу родилась ёлочка"?', answer: 'Детский хор / народная', points: 100, isPlayed: false },
-      { id: 'q-1-3-2', question: 'Какой праздничный хит исполняет Mariah Carey?', answer: 'All I Want for Christmas Is You', points: 200, isPlayed: false },
-      { id: 'q-1-3-3', question: 'Кто написал музыку к балету "Щелкунчик"?', answer: 'Чайковский', points: 300, isPlayed: false },
-      { id: 'q-1-3-4', question: 'В каком году была написана песня "Jingle Bells"?', answer: '1857', points: 400, isPlayed: false },
+      { id: 'q-1-3-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
+      { id: 'q-1-3-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
+      { id: 'q-1-3-3', question: 'Ваш вопрос 3', answer: 'Ваш ответ', points: 300, isPlayed: false },
+      { id: 'q-1-3-4', question: 'Ваш вопрос 4', answer: 'Ваш ответ', points: 400, isPlayed: false },
     ],
   },
   {
     id: 'cat-1-4',
-    name: 'Традиции', // ← Название категории
+    name: 'Цитаты Арестовича', // ← Название категории
     questions: [
-      { id: 'q-1-4-1', question: 'Что кладут под ёлку для Деда Мороза?', answer: 'Подарки / Угощение', points: 100, isPlayed: false },
-      { id: 'q-1-4-2', question: 'В какой стране на Новый год едят 12 виноградин?', answer: 'Испания', points: 200, isPlayed: false },
-      { id: 'q-1-4-3', question: 'Что принято сжигать на Новый год в Эквадоре?', answer: 'Чучело старого года', points: 300, isPlayed: false },
-      { id: 'q-1-4-4', question: 'В какой стране Санта Клаус живёт в Лапландии?', answer: 'Финляндия', points: 400, isPlayed: false },
+      { id: 'q-1-4-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
+      { id: 'q-1-4-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
+      { id: 'q-1-4-3', question: 'Ваш вопрос 3', answer: 'Ваш ответ', points: 300, isPlayed: false },
+      { id: 'q-1-4-4', question: 'Ваш вопрос 4', answer: 'Ваш ответ', points: 400, isPlayed: false },
     ],
   },
   {
     id: 'cat-1-5',
-    name: 'Еда', // ← Название категории
+    name: 'Новогодние фильмы', // ← Название категории
     questions: [
-      { id: 'q-1-5-1', question: 'Какой салат — главный на новогоднем столе в России?', answer: 'Оливье', points: 100, isPlayed: false },
-      { id: 'q-1-5-2', question: 'Из чего делают имбирные пряники?', answer: 'Мука, мёд, имбирь', points: 200, isPlayed: false },
-      { id: 'q-1-5-3', question: 'Какой напиток варят из вина со специями?', answer: 'Глинтвейн', points: 300, isPlayed: false },
-      { id: 'q-1-5-4', question: 'Как называется рождественский торт в Италии?', answer: 'Панеттоне', points: 400, isPlayed: false },
+      { id: 'q-1-5-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
+      { id: 'q-1-5-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
+      { id: 'q-1-5-3', question: 'Ваш вопрос 3', answer: 'Ваш ответ', points: 300, isPlayed: false },
+      { id: 'q-1-5-4', question: 'Ваш вопрос 4', answer: 'Ваш ответ', points: 400, isPlayed: false },
     ],
   },
 ];

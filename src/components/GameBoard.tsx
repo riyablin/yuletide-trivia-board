@@ -52,11 +52,11 @@ export const GameBoard = ({
       <div className="flex-1 flex flex-col lg:flex-row gap-4">
         {/* Board Grid */}
         <div className="flex-1">
-          <div 
+          <div
             className="grid gap-2 md:gap-3 h-full"
-            style={{ 
+            style={{
               gridTemplateColumns: `repeat(${round.categories.length}, minmax(100px, 1fr))`,
-              gridTemplateRows: `auto repeat(5, 1fr)`,
+              gridTemplateRows: `auto repeat(4, 1fr)`,
             }}
           >
             {/* Category Headers */}
@@ -67,7 +67,7 @@ export const GameBoard = ({
             ))}
 
             {/* Question Cells */}
-            {[0, 1, 2, 3, 4].map(rowIndex => (
+            {[0, 1, 2, 3].map(rowIndex => (
               round.categories.map(category => {
                 const question = category.questions[rowIndex];
                 const points = question.points * round.pointMultiplier;
