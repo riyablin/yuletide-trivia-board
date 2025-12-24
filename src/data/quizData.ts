@@ -76,7 +76,8 @@ const round1Categories: Category[] = [
         answer: 'Бустер!',
         points: 300,
         isPlayed: false,
-        questionImage: '/images/round1/Buster.png'
+        questionImage: '/images/round1/Buster.png',
+        isBuster: true
       },
       {
         id: 'q-1-2-4',

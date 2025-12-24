@@ -92,7 +92,19 @@ export const QuestionModal = ({
 
         {/* Actions */}
         <div className="p-4 md:p-6 bg-muted/50 border-t">
-          {!showAnswer ? (
+          {question.isBuster ? (
+            <div className="flex justify-center">
+              <Button
+                variant="outline"
+                onClick={onClose}
+                className="gap-2"
+                size="lg"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                Вернуться к доске
+              </Button>
+            </div>
+          ) : !showAnswer ? (
             <div className="flex flex-col md:flex-row gap-3 justify-center">
               <Button
                 onClick={onShowAnswer}
