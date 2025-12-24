@@ -102,12 +102,36 @@ const round1Categories: Category[] = [
   },
   {
     id: 'cat-1-4',
-    name: 'Цитаты Кличко', // ← Название категории
+    name: 'Цитаты политиков', // ← Название категории
     questions: [
-      { id: 'q-1-4-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
-      { id: 'q-1-4-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
-      { id: 'q-1-4-3', question: 'Ваш вопрос 3', answer: 'Ваш ответ', points: 300, isPlayed: false },
-      { id: 'q-1-4-4', question: 'Ваш вопрос 4', answer: 'Ваш ответ', points: 400, isPlayed: false },
+      {
+        id: 'q-1-4-1',
+        question: 'Женщинам лесбиянство я прощаю. Но голубизну мужикам — никогда в жизни.',
+        answer: 'Лукашенко',
+        points: 100,
+        isPlayed: false
+      },
+      {
+        id: 'q-1-4-2',
+        question: 'А сегодня в завтрашний день не все могут смотреть. Вернее, смотреть могут не только лишь все, мало кто может это делать.',
+        answer: 'Кличко',
+        points: 200,
+        isPlayed: false
+      },
+      {
+        id: 'q-1-4-3',
+        question: 'У вас скучное лицо. Ищите козявки у себя, посмотрите на себя в зеркало!',
+        answer: 'Геннадий Кернес',
+        points: 300,
+        isPlayed: false
+      },
+      {
+        id: 'q-1-4-4',
+        question: 'ПОДЛОСТЬ! ГАДОСТЬ! ПРЕСТУПНИКИ!',
+        answer: 'Жириновский',
+        points: 400,
+        isPlayed: false
+      },
     ],
   },
   {
@@ -133,10 +157,10 @@ const round1Categories: Category[] = [
       {
         id: 'q-1-5-3',
         question: 'Угадай фильм',
-        answer: 'Ёлки',
+        answer: 'Джентльмены удачи',
         points: 300,
         isPlayed: false,
-        questionImage: '/images/round1/films/300/Yolki 2010 Part 1.jpg'
+        questionImage: '/images/round1/films/300/Dzhentlmeny_min.jpg'
       },
       {
         id: 'q-1-5-4',
