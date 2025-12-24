@@ -10,10 +10,42 @@ const round1Categories: Category[] = [
     id: 'cat-1-1',
     name: 'Каламбуры', // ← Название категории
     questions: [
-      { id: 'q-1-1-1', question: 'Ваш вопрос 1', answer: 'Ваш ответ', points: 100, isPlayed: false },
-      { id: 'q-1-1-2', question: 'Ваш вопрос 2', answer: 'Ваш ответ', points: 200, isPlayed: false },
-      { id: 'q-1-1-3', question: 'Ваш вопрос 3', answer: 'Ваш ответ', points: 300, isPlayed: false },
-      { id: 'q-1-1-4', question: 'Ваш вопрос 4', answer: 'Ваш ответ', points: 400, isPlayed: false },
+      {
+        id: 'q-1-1-1',
+        question: 'Каламбур 100',
+        answer: 'Ответ на каламбур 100',
+        points: 100,
+        isPlayed: false,
+        questionImage: '/images/round1/kalambury/100/каламбур 100 вопрос.jpeg',
+        answerImage: '/images/round1/kalambury/100/каламбур 100 ответ.jpeg'
+      },
+      {
+        id: 'q-1-1-2',
+        question: 'Каламбур 200',
+        answer: 'Ответ на каламбур 200',
+        points: 200,
+        isPlayed: false,
+        questionImage: '/images/round1/kalambury/200/каламбуры 200 вопрос.jpeg',
+        answerImage: '/images/round1/kalambury/200/каламбур 200 ответ.jpeg'
+      },
+      {
+        id: 'q-1-1-3',
+        question: 'Каламбур 300',
+        answer: 'Ответ на каламбур 300',
+        points: 300,
+        isPlayed: false,
+        questionImage: '/images/round1/kalambury/300/каламбуры 300 вопрос.jpeg',
+        answerImage: '/images/round1/kalambury/300/каламбуры 300 ответ.jpeg'
+      },
+      {
+        id: 'q-1-1-4',
+        question: 'Каламбур 400',
+        answer: 'Ответ на каламбур 400',
+        points: 400,
+        isPlayed: false,
+        questionImage: '/images/round1/kalambury/400/каламбуры 400 вопрос .jpeg',
+        answerImage: '/images/round1/kalambury/400/каламбуры 400 ответ.jpeg'
+      },
     ],
   },
   {

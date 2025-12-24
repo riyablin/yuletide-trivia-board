@@ -49,19 +49,37 @@ export const QuestionModal = ({
         </div>
 
         {/* Question */}
-        <div className="p-6 md:p-10 text-center min-h-[200px] flex items-center justify-center bg-card">
-          <p className="text-xl md:text-3xl font-semibold text-foreground leading-relaxed">
-            {question.question || 'Вопрос не указан'}
-          </p>
-        </div>
+        {!showAnswer && (
+          <div className="p-6 md:p-10 text-center min-h-[200px] flex items-center justify-center bg-card">
+            {question.questionImage ? (
+              <img
+                src={question.questionImage}
+                alt="Вопрос"
+                className="max-w-full max-h-[50vh] object-contain rounded-lg"
+              />
+            ) : (
+              <p className="text-xl md:text-3xl font-semibold text-foreground leading-relaxed">
+                {question.question || 'Вопрос не указан'}
+              </p>
+            )}
+          </div>
+        )}
 
         {/* Answer (if shown) */}
         {showAnswer && (
           <div className="p-6 md:p-8 bg-primary/5 border-t-4 border-primary animate-fade-in">
             <p className="text-sm text-muted-foreground text-center mb-2">Ответ:</p>
-            <p className="text-xl md:text-2xl font-bold text-primary text-center">
-              {question.answer || 'Ответ не указан'}
-            </p>
+            {question.answerImage ? (
+              <img
+                src={question.answerImage}
+                alt="Ответ"
+                className="max-w-full max-h-[40vh] object-contain rounded-lg mx-auto"
+              />
+            ) : (
+              <p className="text-xl md:text-2xl font-bold text-primary text-center">
+                {question.answer || 'Ответ не указан'}
+              </p>
+            )}
           </div>
         )}
 

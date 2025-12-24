@@ -4,6 +4,8 @@ export interface Question {
   answer: string;
   points: number;
   isPlayed: boolean;
+  questionImage?: string; // Путь к картинке-вопросу
+  answerImage?: string;   // Путь к картинке-ответу
 }
 
 export interface Category {
