@@ -7,6 +7,8 @@ export interface Question {
   questionImage?: string; // Путь к картинке-вопросу
   answerImage?: string;   // Путь к картинке-ответу
   answerVideo?: string;   // Путь к видео-ответу
+  questionAudio?: string; // Путь к аудио-вопросу
+  answerAudio?: string;   // Путь к аудио-ответу
   isBuster?: boolean;     // Флаг что это бустер
 }
 

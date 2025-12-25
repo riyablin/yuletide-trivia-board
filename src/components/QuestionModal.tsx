@@ -51,7 +51,21 @@ export const QuestionModal = ({
         {/* Question */}
         {!showAnswer && (
           <div className="p-6 md:p-10 text-center min-h-[200px] flex items-center justify-center bg-card">
-            {question.questionImage ? (
+            {question.questionAudio ? (
+              <div className="w-full max-w-md">
+                {question.question && (
+                  <p className="text-xl md:text-2xl font-semibold text-foreground mb-6">
+                    {question.question}
+                  </p>
+                )}
+                <audio
+                  controls
+                  autoPlay
+                  className="w-full"
+                  src={question.questionAudio}
+                />
+              </div>
+            ) : question.questionImage ? (
               <img
                 src={question.questionImage}
                 alt="Вопрос"
@@ -69,7 +83,21 @@ export const QuestionModal = ({
         {showAnswer && (
           <div className="p-6 md:p-8 bg-primary/5 border-t-4 border-primary animate-fade-in">
             <p className="text-sm text-muted-foreground text-center mb-2">Ответ:</p>
-            {question.answerVideo ? (
+            {question.answerAudio ? (
+              <div className="w-full max-w-md mx-auto">
+                {question.answer && (
+                  <p className="text-xl md:text-2xl font-bold text-primary text-center mb-6">
+                    {question.answer}
+                  </p>
+                )}
+                <audio
+                  controls
+                  autoPlay
+                  className="w-full"
+                  src={question.answerAudio}
+                />
+              </div>
+            ) : question.answerVideo ? (
               <video
                 src={question.answerVideo}
                 controls

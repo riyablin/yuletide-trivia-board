@@ -296,10 +296,36 @@ const round2Categories: Category[] = [
     id: 'cat-2-3',
     name: 'Новости', // ← Название категории
     questions: [
-      { id: 'q-2-3-1', question: 'Вопрос 100', answer: 'Ответ 100', points: 100, isPlayed: false },
-      { id: 'q-2-3-2', question: 'Вопрос 200', answer: 'Ответ 200', points: 200, isPlayed: false },
-      { id: 'q-2-3-3', question: 'Вопрос 300', answer: 'Ответ 300', points: 300, isPlayed: false },
-      { id: 'q-2-3-4', question: 'Вопрос 400', answer: 'Ответ 400', points: 400, isPlayed: false },
+      {
+        id: 'q-2-3-1',
+        question: 'С 1 января владельцы иностранных веб-ресурсов должны будут сертифицировать их для работы в РФ. Иначе - автоматическая блокировка',
+        answer: 'ЛОЖЬ',
+        points: 100,
+        isPlayed: false
+      },
+      {
+        id: 'q-2-3-2',
+        question: 'В Бразилии женщина попыталась взять кредит, привезя в банк мёртвого дядю в инвалидном кресле и выдавая его за живого',
+        answer: 'ПРАВДА',
+        points: 200,
+        isPlayed: false
+      },
+      {
+        id: 'q-2-3-3',
+        question: 'Вместо балета Чайковского - мюзикл: в Большом театре представят совместное творение Басты и Егора Крида',
+        answer: 'ЛОЖЬ',
+        points: 300,
+        isPlayed: false
+      },
+      {
+        id: 'q-2-3-4',
+        question: 'БУСТЕР',
+        answer: 'Бустер!',
+        points: 400,
+        isPlayed: false,
+        questionImage: '/images/round2/buster/3D Golden Number 500.png',
+        isBuster: true
+      },
     ],
   },
   {
@@ -316,10 +342,42 @@ const round2Categories: Category[] = [
     id: 'cat-2-5',
     name: 'Музыкалити', // ← Название категории
     questions: [
-      { id: 'q-2-5-1', question: 'Вопрос 100', answer: 'Ответ 100', points: 100, isPlayed: false },
-      { id: 'q-2-5-2', question: 'Вопрос 200', answer: 'Ответ 200', points: 200, isPlayed: false },
-      { id: 'q-2-5-3', question: 'Вопрос 300', answer: 'Ответ 300', points: 300, isPlayed: false },
-      { id: 'q-2-5-4', question: 'Вопрос 400', answer: 'Ответ 400', points: 400, isPlayed: false },
+      {
+        id: 'q-2-5-1',
+        question: 'Послушайте фрагмент',
+        answer: 'Ответ',
+        points: 100,
+        isPlayed: false,
+        questionAudio: '/images/round2/музыкалити/200/вопрос/v0f044gc0000csurkpfog65q3e7tb61g.mov',
+        answerAudio: '/images/round2/музыкалити/200/ответ/v09044g40000cm43f4vog65sja18gta0.mov'
+      },
+      {
+        id: 'q-2-5-2',
+        question: 'Послушайте фрагмент',
+        answer: 'Ответ',
+        points: 200,
+        isPlayed: false,
+        questionAudio: '/images/round2/музыкалити/400/вопрос/v14044g50000d4khvv7og65oj93o0kqg.mov',
+        answerAudio: '/images/round2/музыкалити/400/ответ/v14044g50000d47hapnog65s659jgfrg.mp4'
+      },
+      {
+        id: 'q-2-5-3',
+        question: 'Послушайте фрагмент',
+        answer: 'Ответ',
+        points: 300,
+        isPlayed: false,
+        questionAudio: '/images/round2/музыкалити/600/вопрос/v1c044g50000d4u1o87og65uvghb1elg.mp4',
+        answerAudio: '/images/round2/музыкалити/600/ответ/v24044gl0000d55sv9nog65otmt5a430.mp4'
+      },
+      {
+        id: 'q-2-5-4',
+        question: 'Послушайте фрагмент',
+        answer: 'Ответ',
+        points: 400,
+        isPlayed: false,
+        questionAudio: '/images/round2/музыкалити/800/вопрос/v14044g50000ctjfb7fog65t1j8j2g6g.mp4',
+        answerAudio: '/images/round2/музыкалити/800/ответ/v09044g40000clr5shnog65p29e908d0.mov'
+      },
     ],
   },
 ];
