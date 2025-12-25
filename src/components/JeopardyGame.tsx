@@ -138,7 +138,7 @@ export const JeopardyGame = () => {
   const handleUpdateScore = useCallback((teamId: string, delta: number) => {
     setGameState(prev => ({
       ...prev,
-      teams: prev.teams.map(t => 
+      teams: prev.teams.map(t =>
         t.id === teamId ? { ...t, score: t.score + delta } : t
       ),
     }));

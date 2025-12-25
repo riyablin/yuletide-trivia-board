@@ -1,7 +1,7 @@
 import { Round, Team, Question, Category } from '@/types/game';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Plus, Minus, Trophy, ArrowRight, Sparkles } from 'lucide-react';
+import { Plus, Minus, ArrowRight, Sparkles } from 'lucide-react';
 import { PixelStar } from './PixelStar';
 import { cn } from '@/lib/utils';
 
@@ -30,11 +30,9 @@ export const GameBoard = ({
   currentRoundIndex,
   totalRounds,
 }: GameBoardProps) => {
-  const allQuestionsPlayed = round.categories.every(cat => 
+  const allQuestionsPlayed = round.categories.every(cat =>
     cat.questions.every(q => q.isPlayed)
   );
-
-  const sortedTeams = [...teams].sort((a, b) => b.score - a.score);
 
   return (
     <div className="min-h-screen bg-background pattern-dots p-4 flex flex-col">
@@ -124,21 +122,15 @@ export const GameBoard = ({
         {/* Teams Sidebar */}
         <div className="lg:w-72 space-y-3">
           <h2 className="font-display text-sm text-center text-primary mb-4">КОМАНДЫ</h2>
-          
-          {sortedTeams.map((team, index) => (
-            <Card 
+
+          {teams.map((team, index) => (
+            <Card
               key={team.id}
-              className={cn(
-                'team-card',
-                index === 0 && teams.length > 1 && 'ring-2 ring-christmas-gold'
-              )}
+              className="team-card"
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  {index === 0 && teams.length > 1 && (
-                    <Trophy className="w-4 h-4 text-christmas-gold" />
-                  )}
-                  <div 
+                  <div
                     className="w-3 h-3 rounded-full"
                     style={{ backgroundColor: team.color }}
                   />
@@ -155,8 +147,8 @@ export const GameBoard = ({
                 >
                   <Minus className="w-5 h-5" />
                 </Button>
-                
-                <span 
+
+                <span
                   className={cn(
                     'font-display text-xl',
                     team.score >= 0 ? 'text-primary' : 'text-destructive'
@@ -164,7 +156,7 @@ export const GameBoard = ({
                 >
                   {team.score}
                 </span>
-                
+
                 <Button
                   variant="outline"
                   size="icon"
