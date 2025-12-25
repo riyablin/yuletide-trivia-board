@@ -19,6 +19,7 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
   const [wagers, setWagers] = useState<Record<string, number>>(() =>
     Object.fromEntries(teams.map(t => [t.id, 100]))
   );
+  const [updatedTeams, setUpdatedTeams] = useState<Team[]>(teams);
 
   const handleWagerChange = (teamId: string, value: string) => {
     const numValue = Math.max(1, Math.min(1000, parseInt(value) || 1));
@@ -27,17 +28,23 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
 
   const handleAddWager = (teamId: string) => {
     const wager = wagers[teamId] || 0;
-    const updatedTeams = teams.map(team =>
-      team.id === teamId ? { ...team, score: team.score + wager } : team
+    setUpdatedTeams(prev =>
+      prev.map(team =>
+        team.id === teamId ? { ...team, score: team.score + wager } : team
+      )
     );
-    onFinish(updatedTeams);
   };
 
   const handleSubtractWager = (teamId: string) => {
     const wager = wagers[teamId] || 0;
-    const updatedTeams = teams.map(team =>
-      team.id === teamId ? { ...team, score: team.score - wager } : team
+    setUpdatedTeams(prev =>
+      prev.map(team =>
+        team.id === teamId ? { ...team, score: team.score - wager } : team
+      )
     );
+  };
+
+  const handleFinish = () => {
     onFinish(updatedTeams);
   };
 
@@ -189,8 +196,8 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
             <p className="text-muted-foreground text-center mb-6">
               Прибавьте или отнимите ставку у каждого игрока
             </p>
-            <div className="space-y-4">
-              {teams.map(team => (
+            <div className="space-y-4 mb-6">
+              {updatedTeams.map(team => (
                 <div key={team.id} className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
                   <div
                     className="w-4 h-4 rounded-full shrink-0"
@@ -223,6 +230,14 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
                 </div>
               ))}
             </div>
+            <Button
+              onClick={handleFinish}
+              className="w-full bg-accent hover:bg-accent/90 font-display text-xs"
+              size="lg"
+            >
+              <Trophy className="w-5 h-5 mr-2" />
+              ПОДВЕСТИ ИТОГИ
+            </Button>
           </Card>
         )}
       </div>
