@@ -2,59 +2,44 @@ import { useState } from 'react';
 import { Team } from '@/types/game';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
-import { Check, X, Trophy, Sparkles } from 'lucide-react';
+import { Plus, Minus, Trophy, Sparkles } from 'lucide-react';
 import { PixelStar } from './PixelStar';
-import { cn } from '@/lib/utils';
+import { FINAL_QUESTION } from '@/data/quizData';
 
 interface FinalRoundProps {
   teams: Team[];
   onFinish: (updatedTeams: Team[]) => void;
 }
 
-type Phase = 'question' | 'wagers' | 'reveal' | 'scoring';
+type Phase = 'category' | 'wagers' | 'question' | 'answer' | 'scoring';
 
 export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
-  const [phase, setPhase] = useState<Phase>('question');
-  const [finalQuestion, setFinalQuestion] = useState('');
-  const [finalAnswer, setFinalAnswer] = useState('');
-  const [wagers, setWagers] = useState<Record<string, number>>(() => 
-    Object.fromEntries(teams.map(t => [t.id, 0]))
-  );
-  const [results, setResults] = useState<Record<string, boolean | null>>(() =>
-    Object.fromEntries(teams.map(t => [t.id, null]))
+  const [phase, setPhase] = useState<Phase>('category');
+  const [wagers, setWagers] = useState<Record<string, number>>(() =>
+    Object.fromEntries(teams.map(t => [t.id, 100]))
   );
 
   const handleWagerChange = (teamId: string, value: string) => {
-    const team = teams.find(t => t.id === teamId);
-    if (!team) return;
-    
-    const numValue = Math.max(0, Math.min(team.score > 0 ? team.score : 0, parseInt(value) || 0));
+    const numValue = Math.max(1, Math.min(1000, parseInt(value) || 1));
     setWagers({ ...wagers, [teamId]: numValue });
   };
 
-  const handleResult = (teamId: string, correct: boolean) => {
-    setResults({ ...results, [teamId]: correct });
-  };
-
-  const calculateFinalScores = () => {
-    const updatedTeams = teams.map(team => {
-      const wager = wagers[team.id] || 0;
-      const correct = results[team.id];
-      
-      if (correct === true) {
-        return { ...team, score: team.score + wager };
-      } else if (correct === false) {
-        return { ...team, score: team.score - wager };
-      }
-      return team;
-    });
-    
+  const handleAddWager = (teamId: string) => {
+    const wager = wagers[teamId] || 0;
+    const updatedTeams = teams.map(team =>
+      team.id === teamId ? { ...team, score: team.score + wager } : team
+    );
     onFinish(updatedTeams);
   };
 
-  const allResultsIn = Object.values(results).every(r => r !== null);
+  const handleSubtractWager = (teamId: string) => {
+    const wager = wagers[teamId] || 0;
+    const updatedTeams = teams.map(team =>
+      team.id === teamId ? { ...team, score: team.score - wager } : team
+    );
+    onFinish(updatedTeams);
+  };
 
   return (
     <div className="min-h-screen bg-background pattern-dots p-4 md:p-8 flex flex-col items-center justify-center">
@@ -70,50 +55,43 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
           </div>
         </div>
 
-        {/* Question Setup Phase */}
-        {phase === 'question' && (
-          <Card className="p-6 md:p-8 animate-fade-in">
-            <h2 className="font-bold text-xl mb-6 text-center">Введите финальный вопрос</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="text-sm font-medium mb-2 block">Вопрос</label>
-                <Textarea
-                  value={finalQuestion}
-                  onChange={(e) => setFinalQuestion(e.target.value)}
-                  placeholder="Введите финальный вопрос..."
-                  className="min-h-[120px]"
-                />
+        {/* Category Phase - Показываем только тему */}
+        {phase === 'category' && (
+          <div className="space-y-6 animate-fade-in">
+            <Card className="p-12 md:p-16 text-center gradient-christmas">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <PixelStar size="md" />
+                <span className="font-display text-primary-foreground text-sm">
+                  ТЕМА ФИНАЛЬНОГО ВОПРОСА
+                </span>
+                <PixelStar size="md" />
               </div>
-              <div>
-                <label className="text-sm font-medium mb-2 block">Ответ</label>
-                <Input
-                  value={finalAnswer}
-                  onChange={(e) => setFinalAnswer(e.target.value)}
-                  placeholder="Введите правильный ответ..."
-                />
-              </div>
-              <Button 
-                onClick={() => setPhase('wagers')} 
-                className="w-full gradient-christmas font-display text-xs"
-                disabled={!finalQuestion}
-              >
-                ДАЛЕЕ: СТАВКИ
-              </Button>
-            </div>
-          </Card>
+              <p className="text-3xl md:text-5xl font-bold text-primary-foreground">
+                {FINAL_QUESTION.category}
+              </p>
+            </Card>
+
+            <Button
+              onClick={() => setPhase('wagers')}
+              className="w-full gradient-christmas font-display text-xs"
+              size="lg"
+            >
+              ДАЛЕЕ: СТАВКИ
+            </Button>
+          </div>
         )}
 
-        {/* Wagers Phase */}
+        {/* Wagers Phase - Ставки от 1 до 1000 */}
         {phase === 'wagers' && (
           <Card className="p-6 md:p-8 animate-fade-in">
             <h2 className="font-bold text-xl mb-6 text-center">Команды делают ставки</h2>
             <p className="text-muted-foreground text-center mb-6">
-              Каждая команда может поставить от 0 до своего текущего счёта
+              Каждая команда может поставить от 1 до 1000 баллов
             </p>
             <div className="space-y-4">
               {teams.map(team => (
                 <div key={team.id} className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-                  <div 
+                  <div
                     className="w-4 h-4 rounded-full shrink-0"
                     style={{ backgroundColor: team.color }}
                   />
@@ -125,8 +103,8 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
                   </div>
                   <Input
                     type="number"
-                    min={0}
-                    max={team.score > 0 ? team.score : 0}
+                    min={1}
+                    max={1000}
                     value={wagers[team.id]}
                     onChange={(e) => handleWagerChange(team.id, e.target.value)}
                     className="w-32 font-display text-center"
@@ -134,9 +112,10 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
                   />
                 </div>
               ))}
-              <Button 
-                onClick={() => setPhase('reveal')} 
+              <Button
+                onClick={() => setPhase('question')}
                 className="w-full gradient-christmas font-display text-xs"
+                size="lg"
               >
                 ПОКАЗАТЬ ВОПРОС
               </Button>
@@ -144,8 +123,8 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
           </Card>
         )}
 
-        {/* Reveal Phase */}
-        {phase === 'reveal' && (
+        {/* Question Phase - Показываем вопрос */}
+        {phase === 'question' && (
           <div className="space-y-6 animate-fade-in">
             <Card className="p-8 md:p-12 text-center gradient-christmas">
               <div className="flex items-center justify-center gap-3 mb-6">
@@ -156,81 +135,95 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
                 <PixelStar size="md" />
               </div>
               <p className="text-2xl md:text-3xl font-semibold text-primary-foreground leading-relaxed">
-                {finalQuestion}
+                {FINAL_QUESTION.question}
               </p>
             </Card>
-            
-            <Button 
-              onClick={() => setPhase('scoring')} 
+
+            <Button
+              onClick={() => setPhase('answer')}
               className="w-full bg-accent hover:bg-accent/90 font-display text-xs"
               size="lg"
             >
-              ПОКАЗАТЬ ОТВЕТ И ПОДВЕСТИ ИТОГИ
+              ПОКАЗАТЬ ОТВЕТ
             </Button>
           </div>
         )}
 
-        {/* Scoring Phase */}
-        {phase === 'scoring' && (
+        {/* Answer Phase - Показываем ответ */}
+        {phase === 'answer' && (
           <div className="space-y-6 animate-fade-in">
-            <Card className="p-6 bg-primary/5 border-2 border-primary">
-              <p className="text-sm text-muted-foreground text-center mb-2">Правильный ответ:</p>
-              <p className="text-2xl font-bold text-primary text-center">
-                {finalAnswer}
+            <Card className="p-8 md:p-12 text-center gradient-christmas">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <PixelStar size="md" />
+                <span className="font-display text-primary-foreground text-sm">
+                  ФИНАЛЬНЫЙ ВОПРОС
+                </span>
+                <PixelStar size="md" />
+              </div>
+              <p className="text-2xl md:text-3xl font-semibold text-primary-foreground leading-relaxed mb-6">
+                {FINAL_QUESTION.question}
               </p>
             </Card>
 
-            <Card className="p-6">
-              <h2 className="font-bold text-xl mb-6 text-center">Оцените ответы команд</h2>
-              <div className="space-y-4">
-                {teams.map(team => (
-                  <div key={team.id} className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-                    <div 
-                      className="w-4 h-4 rounded-full shrink-0"
-                      style={{ backgroundColor: team.color }}
-                    />
-                    <div className="flex-1">
-                      <div className="font-semibold">{team.name}</div>
-                      <div className="text-sm text-muted-foreground">
-                        Ставка: {wagers[team.id]}
-                      </div>
-                    </div>
-                    <div className="flex gap-2">
-                      <Button
-                        size="sm"
-                        variant={results[team.id] === true ? 'default' : 'outline'}
-                        className={cn(
-                          results[team.id] === true && 'bg-primary'
-                        )}
-                        onClick={() => handleResult(team.id, true)}
-                      >
-                        <Check className="w-4 h-4 mr-1" />
-                        +{wagers[team.id]}
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant={results[team.id] === false ? 'destructive' : 'outline'}
-                        onClick={() => handleResult(team.id, false)}
-                      >
-                        <X className="w-4 h-4 mr-1" />
-                        -{wagers[team.id]}
-                      </Button>
+            <Card className="p-6 bg-primary/5 border-2 border-primary">
+              <p className="text-sm text-muted-foreground text-center mb-2">Правильный ответ:</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary text-center">
+                {FINAL_QUESTION.answer}
+              </p>
+            </Card>
+
+            <Button
+              onClick={() => setPhase('scoring')}
+              className="w-full bg-accent hover:bg-accent/90 font-display text-xs"
+              size="lg"
+            >
+              ПОДВЕСТИ ИТОГИ
+            </Button>
+          </div>
+        )}
+
+        {/* Scoring Phase - Прибавить/убрать баллы */}
+        {phase === 'scoring' && (
+          <Card className="p-6 md:p-8 animate-fade-in">
+            <h2 className="font-bold text-xl mb-6 text-center">Подведение итогов</h2>
+            <p className="text-muted-foreground text-center mb-6">
+              Прибавьте или отнимите ставку у каждой команды
+            </p>
+            <div className="space-y-4">
+              {teams.map(team => (
+                <div key={team.id} className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
+                  <div
+                    className="w-4 h-4 rounded-full shrink-0"
+                    style={{ backgroundColor: team.color }}
+                  />
+                  <div className="flex-1">
+                    <div className="font-semibold">{team.name}</div>
+                    <div className="text-sm text-muted-foreground">
+                      Текущий счёт: {team.score} | Ставка: {wagers[team.id]}
                     </div>
                   </div>
-                ))}
-              </div>
-
-              <Button 
-                onClick={calculateFinalScores} 
-                className="w-full mt-6 gap-2 bg-accent hover:bg-accent/90 font-display text-xs"
-                disabled={!allResultsIn}
-                size="lg"
-              >
-                <Trophy className="w-5 h-5" />
-                ПОКАЗАТЬ РЕЗУЛЬТАТЫ
-              </Button>
-            </Card>
-          </div>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="h-10 w-10 text-destructive border-destructive/30 hover:bg-destructive/10"
+                      onClick={() => handleSubtractWager(team.id)}
+                    >
+                      <Minus className="w-5 h-5" />
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="h-10 w-10 text-primary border-primary/30 hover:bg-primary/10"
+                      onClick={() => handleAddWager(team.id)}
+                    >
+                      <Plus className="w-5 h-5" />
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
         )}
       </div>
     </div>

@@ -406,59 +406,6 @@ const round2Categories: Category[] = [
   },
 ];
 
-// РАУНД 3 (очки x3)
-const round3Categories: Category[] = [
-  {
-    id: 'cat-3-1',
-    name: 'Мировые традиции', // ← Название категории
-    questions: [
-      { id: 'q-3-1-1', question: 'В какой стране бросают старую мебель в окно на Новый год?', answer: 'Италия', points: 100, isPlayed: false },
-      { id: 'q-3-1-2', question: 'В какой стране на Новый год принято бить посуду о дома друзей?', answer: 'Дания', points: 200, isPlayed: false },
-      { id: 'q-3-1-3', question: 'В какой стране звонят в колокола 108 раз на Новый год?', answer: 'Япония', points: 300, isPlayed: false },
-      { id: 'q-3-1-4', question: 'В какой стране едят лапшу соба на Новый год для долголетия?', answer: 'Япония', points: 400, isPlayed: false },
-    ],
-  },
-  {
-    id: 'cat-3-2',
-    name: 'Кино и мультфильмы', // ← Название категории
-    questions: [
-      { id: 'q-3-2-1', question: 'Какой актёр озвучивал Джека Скеллингтона в "Кошмаре перед Рождеством"?', answer: 'Дэнни Эльфман', points: 100, isPlayed: false },
-      { id: 'q-3-2-2', question: 'Как называется город, где живёт Гринч?', answer: 'Ктоград / Whoville', points: 200, isPlayed: false },
-      { id: 'q-3-2-3', question: 'Сколько лет провёл в тюрьме главный герой "Карнавальной ночи"?', answer: 'Не сидел (это комедия)', points: 300, isPlayed: false },
-      { id: 'q-3-2-4', question: 'Какой город показывают в начале фильма "Реальная любовь"?', answer: 'Лондон', points: 400, isPlayed: false },
-    ],
-  },
-  {
-    id: 'cat-3-3',
-    name: 'Рекорды', // ← Название категории
-    questions: [
-      { id: 'q-3-3-1', question: 'Какая страна установила рекорд самого большого снеговика?', answer: 'США (Мэн)', points: 100, isPlayed: false },
-      { id: 'q-3-3-2', question: 'Сколько метров в высоту была самая высокая ёлка в мире?', answer: '67 метров', points: 200, isPlayed: false },
-      { id: 'q-3-3-3', question: 'Сколько людей одновременно пели "Jingle Bells" для рекорда?', answer: 'Более 10000', points: 300, isPlayed: false },
-      { id: 'q-3-3-4', question: 'В каком городе зажгли самую большую рождественскую гирлянду?', answer: 'Канберра, Австралия', points: 400, isPlayed: false },
-    ],
-  },
-  {
-    id: 'cat-3-4',
-    name: 'Литература', // ← Название категории
-    questions: [
-      { id: 'q-3-4-1', question: 'Кто написал "Рождественскую песнь в прозе"?', answer: 'Чарльз Диккенс', points: 100, isPlayed: false },
-      { id: 'q-3-4-2', question: 'Как звали скрягу из "Рождественской песни"?', answer: 'Эбенизер Скрудж', points: 200, isPlayed: false },
-      { id: 'q-3-4-3', question: 'Кто написал стихотворение "Мороз-воевода"?', answer: 'Некрасов', points: 300, isPlayed: false },
-      { id: 'q-3-4-4', question: 'В какой сказке девочка встречает 12 месяцев?', answer: 'Двенадцать месяцев', points: 400, isPlayed: false },
-    ],
-  },
-  {
-    id: 'cat-3-5',
-    name: 'Знаменитости', // ← Название категории
-    questions: [
-      { id: 'q-3-5-1', question: 'Какая певица исполнила "All I Want for Christmas Is You"?', answer: 'Mariah Carey', points: 100, isPlayed: false },
-      { id: 'q-3-5-2', question: 'Кто сыграл Деда Мороза в "Санта Клаусе"?', answer: 'Тим Аллен', points: 200, isPlayed: false },
-      { id: 'q-3-5-3', question: 'Какой актёр сыграл 6 ролей в мультфильме "Полярный экспресс"?', answer: 'Том Хэнкс', points: 300, isPlayed: false },
-      { id: 'q-3-5-4', question: 'Кто режиссёр фильма "Кошмар перед Рождеством"?', answer: 'Тим Бёртон', points: 400, isPlayed: false },
-    ],
-  },
-];
 
 // Финальный вопрос
 export const FINAL_QUESTION = {
@@ -480,11 +427,5 @@ export const QUIZ_ROUNDS: Round[] = [
     name: 'Раунд 2',
     categories: round2Categories,
     pointMultiplier: 2,
-  },
-  {
-    id: 'round-3',
-    name: 'Раунд 3',
-    categories: round3Categories,
-    pointMultiplier: 3,
   },
 ];
