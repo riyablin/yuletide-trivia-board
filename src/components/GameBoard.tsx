@@ -91,7 +91,7 @@ export const GameBoard = ({
             {/* Category Headers */}
             {round.categories.map(category => (
               <div key={category.id} className="category-header">
-                {category.name}
+                <span className="relative z-10 text-shadow-sm">{category.name}</span>
               </div>
             ))}
 

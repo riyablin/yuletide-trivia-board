@@ -122,9 +122,12 @@
   }
 
   .category-header {
-    @apply bg-primary/90 text-primary-foreground font-bold text-sm md:text-base
+    @apply font-bold text-sm md:text-base
            p-3 flex items-center justify-center text-center
-           border-4 border-primary/80 rounded-lg min-h-[80px];
+           rounded-lg min-h-[80px] relative;
+    background: hsl(0 70% 45%);
+    color: hsl(50 30% 98%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   }
 
   .team-card {
@@ -154,6 +157,10 @@
 @layer utilities {
   .text-shadow-glow {
     text-shadow: 0 0 20px hsl(var(--christmas-gold) / 0.5);
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   .gradient-christmas {
