@@ -84,9 +84,9 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
         {/* Wagers Phase - Ставки от 1 до 1000 */}
         {phase === 'wagers' && (
           <Card className="p-6 md:p-8 animate-fade-in">
-            <h2 className="font-bold text-xl mb-6 text-center">Команды делают ставки</h2>
+            <h2 className="font-bold text-xl mb-6 text-center">Игроки делают ставки</h2>
             <p className="text-muted-foreground text-center mb-6">
-              Каждая команда может поставить от 1 до 1000 баллов
+              Каждый игрок может поставить от 1 до 1000 баллов
             </p>
             <div className="space-y-4">
               {teams.map(team => (
@@ -187,7 +187,7 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
           <Card className="p-6 md:p-8 animate-fade-in">
             <h2 className="font-bold text-xl mb-6 text-center">Подведение итогов</h2>
             <p className="text-muted-foreground text-center mb-6">
-              Прибавьте или отнимите ставку у каждой команды
+              Прибавьте или отнимите ставку у каждого игрока
             </p>
             <div className="space-y-4">
               {teams.map(team => (

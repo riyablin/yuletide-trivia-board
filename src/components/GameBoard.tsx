@@ -121,7 +121,7 @@ export const GameBoard = ({
 
         {/* Teams Sidebar */}
         <div className="lg:w-72 space-y-3">
-          <h2 className="font-display text-sm text-center text-primary mb-4">КОМАНДЫ</h2>
+          <h2 className="font-display text-sm text-center text-primary mb-4">ИГРОКИ</h2>
 
           {teams.map((team, index) => (
             <Card

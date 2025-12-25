@@ -12,14 +12,14 @@ interface GameSetupProps {
 
 export const GameSetup = ({ onStartGame }: GameSetupProps) => {
   const [teamCount, setTeamCount] = useState(2);
-  const [teamNames, setTeamNames] = useState<string[]>(['Команда 1', 'Команда 2']);
+  const [teamNames, setTeamNames] = useState<string[]>(['Игрок 1', 'Игрок 2']);
 
   const handleTeamCountChange = (delta: number) => {
     const newCount = Math.max(2, Math.min(6, teamCount + delta));
     setTeamCount(newCount);
     
     if (delta > 0) {
-      setTeamNames([...teamNames, `Команда ${newCount}`]);
+      setTeamNames([...teamNames, `Игрок ${newCount}`]);
     } else {
       setTeamNames(teamNames.slice(0, newCount));
     }
@@ -34,7 +34,7 @@ export const GameSetup = ({ onStartGame }: GameSetupProps) => {
   const handleStart = () => {
     const teams: Team[] = teamNames.map((name, i) => ({
       id: `team-${i}`,
-      name: name || `Команда ${i + 1}`,
+      name: name || `Игрок ${i + 1}`,
       score: 0,
       color: TEAM_COLORS[i],
     }));
@@ -71,7 +71,7 @@ export const GameSetup = ({ onStartGame }: GameSetupProps) => {
         <div className="space-y-6">
           <div className="text-center">
             <label className="text-lg font-semibold text-foreground mb-4 block">
-              Количество команд
+              Количество игроков
             </label>
             <div className="flex items-center justify-center gap-4">
               <Button
@@ -100,7 +100,7 @@ export const GameSetup = ({ onStartGame }: GameSetupProps) => {
 
           <div className="space-y-3">
             <label className="text-lg font-semibold text-foreground block text-center">
-              Названия команд
+              Имена игроков
             </label>
             {teamNames.map((name, index) => (
               <div key={index} className="flex items-center gap-3">
@@ -111,7 +111,7 @@ export const GameSetup = ({ onStartGame }: GameSetupProps) => {
                 <Input
                   value={name}
                   onChange={(e) => handleNameChange(index, e.target.value)}
-                  placeholder={`Команда ${index + 1}`}
+                  placeholder={`Игрок ${index + 1}`}
                   className="font-medium"
                 />
               </div>
