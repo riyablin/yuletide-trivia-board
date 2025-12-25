@@ -254,10 +254,42 @@ const round2Categories: Category[] = [
     id: 'cat-2-2',
     name: 'Скрытое', // ← Название категории
     questions: [
-      { id: 'q-2-2-1', question: 'Вопрос 100', answer: 'Ответ 100', points: 100, isPlayed: false },
-      { id: 'q-2-2-2', question: 'Вопрос 200', answer: 'Ответ 200', points: 200, isPlayed: false },
-      { id: 'q-2-2-3', question: 'Вопрос 300', answer: 'Ответ 300', points: 300, isPlayed: false },
-      { id: 'q-2-2-4', question: 'Вопрос 400', answer: 'Ответ 400', points: 400, isPlayed: false },
+      {
+        id: 'q-2-2-1',
+        question: 'Угадай мем',
+        answer: 'Ответ',
+        points: 100,
+        isPlayed: false,
+        questionImage: '/images/round2/memes/100/answer.jpeg',
+        answerImage: '/images/round2/memes/100/question.png'
+      },
+      {
+        id: 'q-2-2-2',
+        question: 'Угадай мем',
+        answer: 'Ответ',
+        points: 200,
+        isPlayed: false,
+        questionImage: '/images/round2/memes/200/answer.jpeg',
+        answerImage: '/images/round2/memes/200/question.jpeg'
+      },
+      {
+        id: 'q-2-2-3',
+        question: 'Угадай мем',
+        answer: 'Ответ',
+        points: 300,
+        isPlayed: false,
+        questionImage: '/images/round2/memes/300/answer.jpeg',
+        answerImage: '/images/round2/memes/300/question.png'
+      },
+      {
+        id: 'q-2-2-4',
+        question: 'Угадай мем',
+        answer: 'Ответ',
+        points: 400,
+        isPlayed: false,
+        questionImage: '/images/round2/memes/400/answer.jpeg',
+        answerImage: '/images/round2/memes/400/question.png'
+      },
     ],
   },
   {
