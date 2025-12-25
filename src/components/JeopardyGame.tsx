@@ -158,6 +158,20 @@ export const JeopardyGame = () => {
     }));
   }, []);
 
+  const handleSwitchRound = useCallback((roundIndex: number) => {
+    setGameState(prev => ({
+      ...prev,
+      currentRound: roundIndex,
+    }));
+  }, []);
+
+  const handleSwitchToFinal = useCallback(() => {
+    setGameState(prev => ({
+      ...prev,
+      gamePhase: 'final',
+    }));
+  }, []);
+
   const handleFinalFinish = useCallback((updatedTeams: Team[]) => {
     setGameState(prev => ({
       ...prev,
@@ -207,6 +221,8 @@ export const JeopardyGame = () => {
             onUpdateScore={handleUpdateScore}
             onNextRound={handleNextRound}
             onFinalRound={handleFinalRound}
+            onSwitchRound={handleSwitchRound}
+            onSwitchToFinal={handleSwitchToFinal}
             currentRoundIndex={gameState.currentRound}
             totalRounds={gameState.rounds.length}
           />

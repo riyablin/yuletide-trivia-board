@@ -12,6 +12,8 @@ interface GameBoardProps {
   onUpdateScore: (teamId: string, delta: number) => void;
   onNextRound: () => void;
   onFinalRound: () => void;
+  onSwitchRound: (roundIndex: number) => void;
+  onSwitchToFinal: () => void;
   currentRoundIndex: number;
   totalRounds: number;
 }
@@ -23,6 +25,8 @@ export const GameBoard = ({
   onUpdateScore,
   onNextRound,
   onFinalRound,
+  onSwitchRound,
+  onSwitchToFinal,
   currentRoundIndex,
   totalRounds,
 }: GameBoardProps) => {
@@ -34,6 +38,33 @@ export const GameBoard = ({
 
   return (
     <div className="min-h-screen bg-background pattern-dots p-4 flex flex-col">
+      {/* Round Navigation */}
+      <div className="flex justify-center gap-2 mb-4 flex-wrap">
+        {Array.from({ length: totalRounds }, (_, i) => (
+          <Button
+            key={i}
+            variant={currentRoundIndex === i ? "default" : "outline"}
+            size="sm"
+            onClick={() => onSwitchRound(i)}
+            className={cn(
+              "font-display text-xs",
+              currentRoundIndex === i && "gradient-christmas"
+            )}
+          >
+            Раунд {i + 1}
+          </Button>
+        ))}
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={onSwitchToFinal}
+          className="font-display text-xs gap-1"
+        >
+          <Sparkles className="w-3 h-3" />
+          Финал
+        </Button>
+      </div>
+
       {/* Header */}
       <div className="text-center mb-4">
         <div className="flex items-center justify-center gap-3 mb-2">

@@ -210,52 +210,84 @@ const round1Categories: Category[] = [
 const round2Categories: Category[] = [
   {
     id: 'cat-2-1',
-    name: 'История', // ← Название категории
+    name: 'Жидковский или Женщина', // ← Название категории
     questions: [
-      { id: 'q-2-1-1', question: 'Кто придумал образ современного Санта Клауса в красном костюме?', answer: 'Coca-Cola / Хэддон Сандблом', points: 100, isPlayed: false },
-      { id: 'q-2-1-2', question: 'В каком веке появились первые ёлочные украшения?', answer: '16 век / XVI', points: 200, isPlayed: false },
-      { id: 'q-2-1-3', question: 'Какой праздник отмечали славяне до принятия Нового года?', answer: 'Коляда', points: 300, isPlayed: false },
-      { id: 'q-2-1-4', question: 'Когда в СССР запретили ёлку?', answer: '1929', points: 400, isPlayed: false },
+      {
+        id: 'q-2-1-1',
+        question: 'Жидковский или Женщина?',
+        answer: 'Ответ',
+        points: 100,
+        isPlayed: false,
+        questionImage: '/images/round2/zhidkovsky/100/answer.jpeg',
+        answerImage: '/images/round2/zhidkovsky/100/question.jpeg'
+      },
+      {
+        id: 'q-2-1-2',
+        question: 'Жидковский или Женщина?',
+        answer: 'Ответ',
+        points: 200,
+        isPlayed: false,
+        questionImage: '/images/round2/zhidkovsky/200/answer.jpeg',
+        answerImage: '/images/round2/zhidkovsky/200/question.jpeg'
+      },
+      {
+        id: 'q-2-1-3',
+        question: 'Жидковский или Женщина?',
+        answer: 'Ответ',
+        points: 300,
+        isPlayed: false,
+        questionImage: '/images/round2/zhidkovsky/300/answer.jpeg',
+        answerImage: '/images/round2/zhidkovsky/300/question.jpeg'
+      },
+      {
+        id: 'q-2-1-4',
+        question: 'Жидковский или Женщина?',
+        answer: 'Ответ',
+        points: 400,
+        isPlayed: false,
+        questionImage: '/images/round2/zhidkovsky/400/answer.jpeg',
+        answerImage: '/images/round2/zhidkovsky/400/question.jpeg'
+      },
     ],
   },
   {
     id: 'cat-2-2',
-    name: 'География', // ← Название категории
+    name: 'Скрытое', // ← Название категории
     questions: [
-      { id: 'q-2-2-1', question: 'Где находится резиденция Деда Мороза в России?', answer: 'Великий Устюг', points: 100, isPlayed: false },
-      { id: 'q-2-2-2', question: 'В какой стране Новый год наступает раньше всех?', answer: 'Кирибати / Самоа', points: 200, isPlayed: false },
-      { id: 'q-2-2-3', question: 'На какой площади в Москве бьют куранты?', answer: 'Красная площадь', points: 300, isPlayed: false },
-      { id: 'q-2-2-4', question: 'В каком городе находится Рокфеллеровская ёлка?', answer: 'Нью-Йорк', points: 400, isPlayed: false },
+      { id: 'q-2-2-1', question: 'Вопрос 100', answer: 'Ответ 100', points: 100, isPlayed: false },
+      { id: 'q-2-2-2', question: 'Вопрос 200', answer: 'Ответ 200', points: 200, isPlayed: false },
+      { id: 'q-2-2-3', question: 'Вопрос 300', answer: 'Ответ 300', points: 300, isPlayed: false },
+      { id: 'q-2-2-4', question: 'Вопрос 400', answer: 'Ответ 400', points: 400, isPlayed: false },
     ],
   },
   {
     id: 'cat-2-3',
-    name: 'Сказки', // ← Название категории
+    name: 'Новости', // ← Название категории
     questions: [
-      { id: 'q-2-3-1', question: 'Кто написал сказку "Щелкунчик"?', answer: 'Гофман', points: 100, isPlayed: false },
-      { id: 'q-2-3-2', question: 'Как зовут оленя Санты с красным носом?', answer: 'Рудольф', points: 200, isPlayed: false },
-      { id: 'q-2-3-3', question: 'Кто украл Рождество в книге Доктора Сьюза?', answer: 'Гринч', points: 300, isPlayed: false },
-      { id: 'q-2-3-4', question: 'Сколько оленей в упряжке Санты (без Рудольфа)?', answer: '8', points: 400, isPlayed: false },
+      { id: 'q-2-3-1', question: 'Вопрос 100', answer: 'Ответ 100', points: 100, isPlayed: false },
+      { id: 'q-2-3-2', question: 'Вопрос 200', answer: 'Ответ 200', points: 200, isPlayed: false },
+      { id: 'q-2-3-3', question: 'Вопрос 300', answer: 'Ответ 300', points: 300, isPlayed: false },
+      { id: 'q-2-3-4', question: 'Вопрос 400', answer: 'Ответ 400', points: 400, isPlayed: false },
     ],
   },
   {
     id: 'cat-2-4',
-    name: 'Символы', // ← Название категории
+    name: 'Тренды в ТТ', // ← Название категории
     questions: [
-      { id: 'q-2-4-1', question: 'Какое растение вешают над дверью для поцелуя?', answer: 'Омела', points: 100, isPlayed: false },
-      { id: 'q-2-4-2', question: 'Какой цветок называют "рождественской звездой"?', answer: 'Пуансеттия', points: 200, isPlayed: false },
-      { id: 'q-2-4-3', question: 'Что символизирует вечнозелёная ёлка?', answer: 'Вечная жизнь / Бессмертие', points: 300, isPlayed: false },
-      { id: 'q-2-4-4', question: 'Какое животное — символ 2025 года по китайскому календарю?', answer: 'Змея', points: 400, isPlayed: false },
+      { id: 'q-2-4-1', question: 'Вопрос 100', answer: 'Ответ 100', points: 100, isPlayed: false },
+      { id: 'q-2-4-2', question: 'Вопрос 200', answer: 'Ответ 200', points: 200, isPlayed: false },
+      { id: 'q-2-4-3', question: 'Вопрос 300', answer: 'Ответ 300', points: 300, isPlayed: false },
+      { id: 'q-2-4-4', question: 'Вопрос 400', answer: 'Ответ 400', points: 400, isPlayed: false },
     ],
   },
   {
     id: 'cat-2-5',
-    name: 'Разное', // ← Название категории
+    name: 'Музыкалити', // ← Название категории
     questions: [
-      { id: 'q-2-5-1', question: 'Как называется период между Рождеством и Крещением?', answer: 'Святки', points: 100, isPlayed: false },
-      { id: 'q-2-5-2', question: 'Сколько боёв курантов звучит в полночь?', answer: '12', points: 200, isPlayed: false },
-      { id: 'q-2-5-3', question: 'Какой газ используют для надувания шариков, чтобы они летали?', answer: 'Гелий', points: 300, isPlayed: false },
-      { id: 'q-2-5-4', question: 'Как называется традиция дарить подарки тайно?', answer: 'Тайный Санта / Secret Santa', points: 400, isPlayed: false },
+      { id: 'q-2-5-1', question: 'Вопрос 100', answer: 'Ответ 100', points: 100, isPlayed: false },
+      { id: 'q-2-5-2', question: 'Вопрос 200', answer: 'Ответ 200', points: 200, isPlayed: false },
+      { id: 'q-2-5-3', question: 'Вопрос 300', answer: 'Ответ 300', points: 300, isPlayed: false },
+      { id: 'q-2-5-4', question: 'Вопрос 400', answer: 'Ответ 400', points: 400, isPlayed: false },
     ],
   },
 ];
