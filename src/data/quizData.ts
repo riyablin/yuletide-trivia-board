@@ -1,5 +1,13 @@
 import { Round, Category, Question, DEFAULT_POINTS } from '@/types/game';
 
+// Интерфейс для финального вопроса
+export interface FinalQuestion {
+  category: string;
+  question: string;
+  answer: string;
+  answerImages?: string[];
+}
+
 // ========================================
 // ЗДЕСЬ ТЫ МОЖЕШЬ ЗАПОЛНИТЬ СВОИ ВОПРОСЫ!
 // ========================================
@@ -408,10 +416,15 @@ const round2Categories: Category[] = [
 
 
 // Финальный вопрос
-export const FINAL_QUESTION = {
-  category: 'Загадка',
-  question: 'Какое слово можно составить из букв: Р, О, Д, Г, Н, О, В, Ы, Й, И ?',
-  answer: 'НОВОГОДНИЙ',
+export const FINAL_QUESTION: FinalQuestion = {
+  category: 'Селебы с запада',
+  question: 'Что последнее выпустила Ким Кардашьян в своем бренде Skims? (за что отхватила партию кринжа и ввела общественность в ахуй)',
+  answer: 'Волосатые стринги!',
+  answerImages: [
+    '/финальный раунд/SKIMS Thong Clay Black.webp',
+    '/финальный раунд/Cocoa Brown Thong.avif',
+    '/финальный раунд/SKIMS-LOUNGWEAR-TH-THG-8207W-CLAY-GINGER-STRIGHT-FLT_51ecd06a-5f60-40a3-ba44-ec1e17a3e457.avif'
+  ],
 };
 
 // Экспортируем готовые раунды

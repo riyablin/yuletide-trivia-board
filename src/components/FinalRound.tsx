@@ -174,9 +174,27 @@ export const FinalRound = ({ teams, onFinish }: FinalRoundProps) => {
 
             <Card className="p-6 bg-primary/5 border-2 border-primary">
               <p className="text-sm text-muted-foreground text-center mb-2">Правильный ответ:</p>
-              <p className="text-2xl md:text-3xl font-bold text-primary text-center">
-                {FINAL_QUESTION.answer}
-              </p>
+              {FINAL_QUESTION.answerImages && FINAL_QUESTION.answerImages.length > 0 ? (
+                <div className="space-y-4">
+                  <p className="text-2xl md:text-3xl font-bold text-primary text-center">
+                    {FINAL_QUESTION.answer}
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {FINAL_QUESTION.answerImages.map((image, index) => (
+                      <img
+                        key={index}
+                        src={image}
+                        alt={`Ответ ${index + 1}`}
+                        className="w-full h-auto object-contain rounded-lg"
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <p className="text-2xl md:text-3xl font-bold text-primary text-center">
+                  {FINAL_QUESTION.answer}
+                </p>
+              )}
             </Card>
 
             <Button
