@@ -39,7 +39,7 @@ export interface GameState {
   currentQuestion: Question | null;
   currentCategory: Category | null;
   showAnswer: boolean;
-  gamePhase: 'setup' | 'editor' | 'playing' | 'final' | 'results';
+  gamePhase: 'setup' | 'rules' | 'editor' | 'playing' | 'final' | 'results';
   finalWagers: Record<string, number>;
   finalAnswers: Record<string, { answer: string; correct: boolean | null }>;
 }

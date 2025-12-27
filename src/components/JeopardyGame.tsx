@@ -1,11 +1,18 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { GameState, Team, Round, Question, Category } from '@/types/game';
 import { GameSetup } from './GameSetup';
+import { GameRules } from './GameRules';
 import { GameBoard } from './GameBoard';
 import { QuestionModal } from './QuestionModal';
 import { FinalRound } from './FinalRound';
 import { GameResults } from './GameResults';
 import { QUIZ_ROUNDS } from '@/data/quizData';
+
+// Хелпер для получения правильного пути к медиа файлам
+const getAssetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  return base + path.replace(/^\//, '');
+};
 
 // Функция для сброса isPlayed во всех вопросах
 const resetRounds = (): Round[] => {
@@ -32,14 +39,44 @@ const initialState: GameState = {
 
 export const JeopardyGame = () => {
   const [gameState, setGameState] = useState<GameState>(initialState);
+  const introAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Создаем аудио элемент один раз при монтировании
+  useEffect(() => {
+    const audio = new Audio(getAssetPath('/intro-song/Feliz Navidad by Jose Feliciano.mp3'));
+    audio.loop = true;
+    audio.volume = 1.0;
+    introAudioRef.current = audio;
+
+    return () => {
+      if (introAudioRef.current) {
+        introAudioRef.current.pause();
+        introAudioRef.current = null;
+      }
+    };
+  }, []);
+
+  // Останавливаем музыку когда начинается игра
+  useEffect(() => {
+    if (gameState.gamePhase === 'playing' && introAudioRef.current) {
+      introAudioRef.current.pause();
+    }
+  }, [gameState.gamePhase]);
 
   const handleStartGame = useCallback((teams: Team[]) => {
     setGameState(prev => ({
       ...prev,
       teams,
       rounds: resetRounds(),
-      gamePhase: 'playing',
+      gamePhase: 'rules',
       currentRound: 0,
+    }));
+  }, []);
+
+  const handleStartPlaying = useCallback(() => {
+    setGameState(prev => ({
+      ...prev,
+      gamePhase: 'playing',
     }));
   }, []);
 
@@ -209,7 +246,11 @@ export const JeopardyGame = () => {
   return (
     <>
       {gameState.gamePhase === 'setup' && (
-        <GameSetup onStartGame={handleStartGame} />
+        <GameSetup onStartGame={handleStartGame} audioRef={introAudioRef} />
+      )}
+
+      {gameState.gamePhase === 'rules' && (
+        <GameRules onStartPlaying={handleStartPlaying} />
       )}
 
       {gameState.gamePhase === 'playing' && currentRound && (

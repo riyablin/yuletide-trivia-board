@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { Team, TEAM_COLORS } from '@/types/game';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,39 +6,15 @@ import { Card } from '@/components/ui/card';
 import { Plus, Minus, Sparkles, TreePine, Volume2 } from 'lucide-react';
 import { PixelStar } from './PixelStar';
 
-// Хелпер для получения правильного пути к медиа файлам
-const getAssetPath = (path: string) => {
-  const base = import.meta.env.BASE_URL || '/';
-  return base + path.replace(/^\//, '');
-};
-
 interface GameSetupProps {
   onStartGame: (teams: Team[]) => void;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
 }
 
-export const GameSetup = ({ onStartGame }: GameSetupProps) => {
+export const GameSetup = ({ onStartGame, audioRef }: GameSetupProps) => {
   const [teamCount, setTeamCount] = useState(2);
   const [teamNames, setTeamNames] = useState<string[]>(['Игрок 1', 'Игрок 2']);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isAudioReady, setIsAudioReady] = useState(false);
-
-  useEffect(() => {
-    // Создаем аудио элемент только один раз
-    const audio = new Audio(getAssetPath('/intro-song/Feliz Navidad by Jose Feliciano.mp3'));
-    audio.loop = true;
-    audio.volume = 1.0;
-    audioRef.current = audio;
-
-    console.log('Audio element created');
-
-    // Останавливаем музыку при размонтировании компонента
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-    };
-  }, []);
 
   const handleTeamCountChange = (delta: number) => {
     const newCount = Math.max(2, Math.min(6, teamCount + delta));
