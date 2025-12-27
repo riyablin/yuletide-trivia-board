@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Team, TEAM_COLORS } from '@/types/game';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
-import { Plus, Minus, Sparkles, TreePine } from 'lucide-react';
+import { Plus, Minus, Sparkles, TreePine, Volume2 } from 'lucide-react';
 import { PixelStar } from './PixelStar';
+
+// Хелпер для получения правильного пути к медиа файлам
+const getAssetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  return base + path.replace(/^\//, '');
+};
 
 interface GameSetupProps {
   onStartGame: (teams: Team[]) => void;
@@ -13,6 +19,26 @@ interface GameSetupProps {
 export const GameSetup = ({ onStartGame }: GameSetupProps) => {
   const [teamCount, setTeamCount] = useState(2);
   const [teamNames, setTeamNames] = useState<string[]>(['Игрок 1', 'Игрок 2']);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isAudioReady, setIsAudioReady] = useState(false);
+
+  useEffect(() => {
+    // Создаем аудио элемент только один раз
+    const audio = new Audio(getAssetPath('/intro-song/Feliz Navidad by Jose Feliciano.mp3'));
+    audio.loop = true;
+    audio.volume = 1.0;
+    audioRef.current = audio;
+
+    console.log('Audio element created');
+
+    // Останавливаем музыку при размонтировании компонента
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
 
   const handleTeamCountChange = (delta: number) => {
     const newCount = Math.max(2, Math.min(6, teamCount + delta));
@@ -39,6 +65,25 @@ export const GameSetup = ({ onStartGame }: GameSetupProps) => {
       color: TEAM_COLORS[i],
     }));
     onStartGame(teams);
+  };
+
+  const handlePlayMusic = () => {
+    console.log('Play button clicked');
+    console.log('Audio ref:', audioRef.current);
+    console.log('Is audio ready:', isAudioReady);
+
+    if (audioRef.current) {
+      audioRef.current.play()
+        .then(() => {
+          console.log('Music started playing successfully!');
+          setIsAudioReady(true);
+        })
+        .catch((error) => {
+          console.error('Failed to play music:', error);
+        });
+    } else {
+      console.error('Audio element not found!');
+    }
   };
 
   return (
@@ -127,6 +172,18 @@ export const GameSetup = ({ onStartGame }: GameSetupProps) => {
             НАЧАТЬ ИГРУ
             <Sparkles className="w-5 h-5" />
           </Button>
+
+          {!isAudioReady && (
+            <Button
+              onClick={handlePlayMusic}
+              className="w-full h-12 gap-2"
+              size="lg"
+              variant="outline"
+            >
+              <Volume2 className="w-5 h-5" />
+              Включить музыку
+            </Button>
+          )}
         </div>
       </Card>
     </div>
