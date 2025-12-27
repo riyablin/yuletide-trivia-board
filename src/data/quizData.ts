@@ -1,5 +1,11 @@
 import { Round, Category, Question, DEFAULT_POINTS } from '@/types/game';
 
+// Хелпер для получения правильного пути к медиа файлам
+const getAssetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  return base + path.replace(/^\//, '');
+};
+
 // Интерфейс для финального вопроса
 export interface FinalQuestion {
   category: string;
@@ -24,8 +30,8 @@ const round1Categories: Category[] = [
         answer: 'Ответ на каламбур 100',
         points: 100,
         isPlayed: false,
-        questionImage: '/images/round1/kalambury/100/каламбур 100 вопрос.jpeg',
-        answerImage: '/images/round1/kalambury/100/каламбур 100 ответ.jpeg'
+        questionImage: getAssetPath('/images/round1/kalambury/100/каламбур 100 вопрос.jpeg'),
+        answerImage: getAssetPath('/images/round1/kalambury/100/каламбур 100 ответ.jpeg')
       },
       {
         id: 'q-1-1-2',
@@ -33,8 +39,8 @@ const round1Categories: Category[] = [
         answer: 'Ответ на каламбур 200',
         points: 200,
         isPlayed: false,
-        questionImage: '/images/round1/kalambury/200/каламбуры 200 вопрос.jpeg',
-        answerImage: '/images/round1/kalambury/200/каламбур 200 ответ.jpeg'
+        questionImage: getAssetPath('/images/round1/kalambury/200/каламбуры 200 вопрос.jpeg'),
+        answerImage: getAssetPath('/images/round1/kalambury/200/каламбур 200 ответ.jpeg')
       },
       {
         id: 'q-1-1-3',
@@ -42,8 +48,8 @@ const round1Categories: Category[] = [
         answer: 'Ответ на каламбур 300',
         points: 300,
         isPlayed: false,
-        questionImage: '/images/round1/kalambury/300/каламбуры 300 вопрос.jpeg',
-        answerImage: '/images/round1/kalambury/300/каламбуры 300 ответ.jpeg'
+        questionImage: getAssetPath('/images/round1/kalambury/300/каламбуры 300 вопрос.jpeg'),
+        answerImage: getAssetPath('/images/round1/kalambury/300/каламбуры 300 ответ.jpeg')
       },
       {
         id: 'q-1-1-4',
@@ -51,8 +57,8 @@ const round1Categories: Category[] = [
         answer: 'Ответ на каламбур 400',
         points: 400,
         isPlayed: false,
-        questionImage: '/images/round1/kalambury/400/каламбуры 400 вопрос .jpeg',
-        answerImage: '/images/round1/kalambury/400/каламбуры 400 ответ.jpeg'
+        questionImage: getAssetPath('/images/round1/kalambury/400/каламбуры 400 вопрос .jpeg'),
+        answerImage: getAssetPath('/images/round1/kalambury/400/каламбуры 400 ответ.jpeg')
       },
     ],
   },
@@ -66,8 +72,8 @@ const round1Categories: Category[] = [
         answer: 'Ответ иван золо 100',
         points: 100,
         isPlayed: false,
-        questionImage: '/images/round1/ivanzolo/100/иван золо 100 вопрос.jpeg',
-        answerImage: '/images/round1/ivanzolo/100/иван золо 100 ответ.jpeg'
+        questionImage: getAssetPath('/images/round1/ivanzolo/100/иван золо 100 вопрос.jpeg'),
+        answerImage: getAssetPath('/images/round1/ivanzolo/100/иван золо 100 ответ.jpeg')
       },
       {
         id: 'q-1-2-2',
@@ -75,8 +81,8 @@ const round1Categories: Category[] = [
         answer: 'Ответ иван золо 200',
         points: 200,
         isPlayed: false,
-        questionImage: '/images/round1/ivanzolo/200/иван золо 200 вопрос.jpeg',
-        answerImage: '/images/round1/ivanzolo/200/иван золо 200 ответ.avif'
+        questionImage: getAssetPath('/images/round1/ivanzolo/200/иван золо 200 вопрос.jpeg'),
+        answerImage: getAssetPath('/images/round1/ivanzolo/200/иван золо 200 ответ.avif')
       },
       {
         id: 'q-1-2-3',
@@ -84,7 +90,7 @@ const round1Categories: Category[] = [
         answer: 'Бустер!',
         points: 300,
         isPlayed: false,
-        questionImage: '/images/round1/Buster.png',
+        questionImage: getAssetPath('/images/round1/Buster.png'),
         isBuster: true
       },
       {
@@ -93,8 +99,8 @@ const round1Categories: Category[] = [
         answer: 'Ответ иван золо 400',
         points: 400,
         isPlayed: false,
-        questionImage: '/images/round1/ivanzolo/400/иван золо 400 вопрос.jpeg',
-        answerImage: '/images/round1/ivanzolo/400/иван золо 400 ответ.jpeg'
+        questionImage: getAssetPath('/images/round1/ivanzolo/400/иван золо 400 вопрос.jpeg'),
+        answerImage: getAssetPath('/images/round1/ivanzolo/400/иван золо 400 ответ.jpeg')
       },
     ],
   },
@@ -108,8 +114,8 @@ const round1Categories: Category[] = [
         answer: 'Afghan War',
         points: 100,
         isPlayed: false,
-        questionImage: '/images/round1/memes/100/Afghan War Search Result.png',
-        answerVideo: '/images/round1/memes/100/5266291172_1_tiktok_685bdb3132e855_99483035.mp4'
+        questionImage: getAssetPath('/images/round1/memes/100/Afghan War Search Result.png'),
+        answerVideo: getAssetPath('/images/round1/memes/100/5266291172_1_tiktok_685bdb3132e855_99483035.mp4')
       },
       {
         id: 'q-1-3-2',
@@ -117,8 +123,8 @@ const round1Categories: Category[] = [
         answer: 'Fabric',
         points: 200,
         isPlayed: false,
-        questionImage: '/images/round1/memes/200/Fabric search result.png',
-        answerVideo: '/images/round1/memes/200/7072147031_1_tiktok_685c75eaba0207_78789667.mp4'
+        questionImage: getAssetPath('/images/round1/memes/200/Fabric search result.png'),
+        answerVideo: getAssetPath('/images/round1/memes/200/7072147031_1_tiktok_685c75eaba0207_78789667.mp4')
       },
       {
         id: 'q-1-3-3',
@@ -126,8 +132,8 @@ const round1Categories: Category[] = [
         answer: 'Добкин 2005',
         points: 300,
         isPlayed: false,
-        questionImage: '/images/round1/memes/300/Добкин 2005.png',
-        answerVideo: '/images/round1/memes/300/371411361_1_tiktok_69282719092671_28921800 2.mov'
+        questionImage: getAssetPath('/images/round1/memes/300/Добкин 2005.png'),
+        answerVideo: getAssetPath('/images/round1/memes/300/371411361_1_tiktok_69282719092671_28921800 2.mov')
       },
       {
         id: 'q-1-3-4',
@@ -135,8 +141,8 @@ const round1Categories: Category[] = [
         answer: 'Мем 400',
         points: 400,
         isPlayed: false,
-        questionImage: '/images/round1/memes/400/Screenshot 2025-12-24 at 20.22.08.png',
-        answerVideo: '/images/round1/memes/400/5229237927_1_tiktok_6861162ce27bb4_20131366.mp4'
+        questionImage: getAssetPath('/images/round1/memes/400/Screenshot 2025-12-24 at 20.22.08.png'),
+        answerVideo: getAssetPath('/images/round1/memes/400/5229237927_1_tiktok_6861162ce27bb4_20131366.mp4')
       },
     ],
   },
@@ -184,7 +190,7 @@ const round1Categories: Category[] = [
         answer: 'Один дома (Home Alone)',
         points: 100,
         isPlayed: false,
-        questionImage: '/images/round1/films/100/Home Alone 1990.jpg'
+        questionImage: getAssetPath('/images/round1/films/100/Home Alone 1990.jpg')
       },
       {
         id: 'q-1-5-2',
@@ -192,7 +198,7 @@ const round1Categories: Category[] = [
         answer: 'Ирония судьбы',
         points: 200,
         isPlayed: false,
-        questionImage: '/images/round1/films/200/Ironiya Sudby 1975.jpg'
+        questionImage: getAssetPath('/images/round1/films/200/Ironiya Sudby 1975.jpg')
       },
       {
         id: 'q-1-5-3',
@@ -200,7 +206,7 @@ const round1Categories: Category[] = [
         answer: 'Джентльмены удачи',
         points: 300,
         isPlayed: false,
-        questionImage: '/images/round1/films/300/Dzhentlmeny_min.jpg'
+        questionImage: getAssetPath('/images/round1/films/300/Dzhentlmeny_min.jpg')
       },
       {
         id: 'q-1-5-4',
@@ -208,7 +214,7 @@ const round1Categories: Category[] = [
         answer: 'Реальная любовь (Love Actually)',
         points: 400,
         isPlayed: false,
-        questionImage: '/images/round1/films/400/Love Actually 2003.jpg'
+        questionImage: getAssetPath('/images/round1/films/400/Love Actually 2003.jpg')
       },
     ],
   },
@@ -226,8 +232,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 100,
         isPlayed: false,
-        questionImage: '/images/round2/zhidkovsky/100/answer.jpeg',
-        answerImage: '/images/round2/zhidkovsky/100/question.jpeg'
+        questionImage: getAssetPath('/images/round2/zhidkovsky/100/answer.jpeg'),
+        answerImage: getAssetPath('/images/round2/zhidkovsky/100/question.jpeg')
       },
       {
         id: 'q-2-1-2',
@@ -235,8 +241,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 200,
         isPlayed: false,
-        questionImage: '/images/round2/zhidkovsky/200/answer.jpeg',
-        answerImage: '/images/round2/zhidkovsky/200/question.jpeg'
+        questionImage: getAssetPath('/images/round2/zhidkovsky/200/answer.jpeg'),
+        answerImage: getAssetPath('/images/round2/zhidkovsky/200/question.jpeg')
       },
       {
         id: 'q-2-1-3',
@@ -244,8 +250,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 300,
         isPlayed: false,
-        questionImage: '/images/round2/zhidkovsky/300/answer.jpeg',
-        answerImage: '/images/round2/zhidkovsky/300/question.jpeg'
+        questionImage: getAssetPath('/images/round2/zhidkovsky/300/answer.jpeg'),
+        answerImage: getAssetPath('/images/round2/zhidkovsky/300/question.jpeg')
       },
       {
         id: 'q-2-1-4',
@@ -253,8 +259,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 400,
         isPlayed: false,
-        questionImage: '/images/round2/zhidkovsky/400/answer.jpeg',
-        answerImage: '/images/round2/zhidkovsky/400/question.jpeg'
+        questionImage: getAssetPath('/images/round2/zhidkovsky/400/answer.jpeg'),
+        answerImage: getAssetPath('/images/round2/zhidkovsky/400/question.jpeg')
       },
     ],
   },
@@ -268,8 +274,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 100,
         isPlayed: false,
-        questionImage: '/images/round2/memes/100/answer.jpeg',
-        answerImage: '/images/round2/memes/100/question.png'
+        questionImage: getAssetPath('/images/round2/memes/100/answer.jpeg'),
+        answerImage: getAssetPath('/images/round2/memes/100/question.png')
       },
       {
         id: 'q-2-2-2',
@@ -277,8 +283,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 200,
         isPlayed: false,
-        questionImage: '/images/round2/memes/200/answer.jpeg',
-        answerImage: '/images/round2/memes/200/question.jpeg'
+        questionImage: getAssetPath('/images/round2/memes/200/answer.jpeg'),
+        answerImage: getAssetPath('/images/round2/memes/200/question.jpeg')
       },
       {
         id: 'q-2-2-3',
@@ -286,8 +292,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 300,
         isPlayed: false,
-        questionImage: '/images/round2/memes/300/answer.jpeg',
-        answerImage: '/images/round2/memes/300/question.png'
+        questionImage: getAssetPath('/images/round2/memes/300/answer.jpeg'),
+        answerImage: getAssetPath('/images/round2/memes/300/question.png')
       },
       {
         id: 'q-2-2-4',
@@ -295,8 +301,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 400,
         isPlayed: false,
-        questionImage: '/images/round2/memes/400/answer.jpeg',
-        answerImage: '/images/round2/memes/400/question.png'
+        questionImage: getAssetPath('/images/round2/memes/400/answer.jpeg'),
+        answerImage: getAssetPath('/images/round2/memes/400/question.png')
       },
     ],
   },
@@ -331,7 +337,7 @@ const round2Categories: Category[] = [
         answer: 'Бустер!',
         points: 400,
         isPlayed: false,
-        questionImage: '/images/round2/buster/3D Golden Number 500.png',
+        questionImage: getAssetPath('/images/round2/buster/3D Golden Number 500.png'),
         isBuster: true
       },
     ],
@@ -380,8 +386,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 100,
         isPlayed: false,
-        questionAudio: '/images/round2/музыкалити/200/вопрос/v0f044gc0000csurkpfog65q3e7tb61g.mov',
-        answerAudio: '/images/round2/музыкалити/200/ответ/v09044g40000cm43f4vog65sja18gta0.mov'
+        questionAudio: getAssetPath('/images/round2/музыкалити/200/вопрос/v0f044gc0000csurkpfog65q3e7tb61g.mov'),
+        answerAudio: getAssetPath('/images/round2/музыкалити/200/ответ/v09044g40000cm43f4vog65sja18gta0.mov')
       },
       {
         id: 'q-2-5-2',
@@ -389,8 +395,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 200,
         isPlayed: false,
-        questionAudio: '/images/round2/музыкалити/400/вопрос/v14044g50000d4khvv7og65oj93o0kqg.mov',
-        answerAudio: '/images/round2/музыкалити/400/ответ/v14044g50000d47hapnog65s659jgfrg.mp4'
+        questionAudio: getAssetPath('/images/round2/музыкалити/400/вопрос/v14044g50000d4khvv7og65oj93o0kqg.mov'),
+        answerAudio: getAssetPath('/images/round2/музыкалити/400/ответ/v14044g50000d47hapnog65s659jgfrg.mp4')
       },
       {
         id: 'q-2-5-3',
@@ -398,8 +404,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 300,
         isPlayed: false,
-        questionAudio: '/images/round2/музыкалити/600/вопрос/v1c044g50000d4u1o87og65uvghb1elg.mp4',
-        answerAudio: '/images/round2/музыкалити/600/ответ/v24044gl0000d55sv9nog65otmt5a430.mp4'
+        questionAudio: getAssetPath('/images/round2/музыкалити/600/вопрос/v1c044g50000d4u1o87og65uvghb1elg.mp4'),
+        answerAudio: getAssetPath('/images/round2/музыкалити/600/ответ/v24044gl0000d55sv9nog65otmt5a430.mp4')
       },
       {
         id: 'q-2-5-4',
@@ -407,8 +413,8 @@ const round2Categories: Category[] = [
         answer: 'Ответ',
         points: 400,
         isPlayed: false,
-        questionAudio: '/images/round2/музыкалити/800/вопрос/v14044g50000ctjfb7fog65t1j8j2g6g.mp4',
-        answerAudio: '/images/round2/музыкалити/800/ответ/v09044g40000clr5shnog65p29e908d0.mov'
+        questionAudio: getAssetPath('/images/round2/музыкалити/800/вопрос/v14044g50000ctjfb7fog65t1j8j2g6g.mp4'),
+        answerAudio: getAssetPath('/images/round2/музыкалити/800/ответ/v09044g40000clr5shnog65p29e908d0.mov')
       },
     ],
   },
@@ -421,9 +427,9 @@ export const FINAL_QUESTION: FinalQuestion = {
   question: 'Что последнее выпустила Ким Кардашьян в своем бренде Skims? (за что отхватила партию кринжа и ввела общественность в ахуй)',
   answer: 'Волосатые стринги!',
   answerImages: [
-    '/финальный раунд/SKIMS Thong Clay Black.webp',
-    '/финальный раунд/Cocoa Brown Thong.avif',
-    '/финальный раунд/SKIMS-LOUNGWEAR-TH-THG-8207W-CLAY-GINGER-STRIGHT-FLT_51ecd06a-5f60-40a3-ba44-ec1e17a3e457.avif'
+    getAssetPath('/финальный раунд/SKIMS Thong Clay Black.webp'),
+    getAssetPath('/финальный раунд/Cocoa Brown Thong.avif'),
+    getAssetPath('/финальный раунд/SKIMS-LOUNGWEAR-TH-THG-8207W-CLAY-GINGER-STRIGHT-FLT_51ecd06a-5f60-40a3-ba44-ec1e17a3e457.avif')
   ],
 };
 
