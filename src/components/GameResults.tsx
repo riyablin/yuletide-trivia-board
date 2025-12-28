@@ -1,9 +1,16 @@
+import { useEffect, useRef } from 'react';
 import { Team } from '@/types/game';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Trophy, Medal, Award, RotateCcw, Home } from 'lucide-react';
 import { PixelStar } from './PixelStar';
 import { cn } from '@/lib/utils';
+
+// Хелпер для получения правильного пути к медиа файлам
+const getAssetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  return base + path.replace(/^\//, '');
+};
 
 interface GameResultsProps {
   teams: Team[];
@@ -12,6 +19,28 @@ interface GameResultsProps {
 }
 
 export const GameResults = ({ teams, onPlayAgain, onNewGame }: GameResultsProps) => {
+  const victoryAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Воспроизводим музыку победы при монтировании компонента
+  useEffect(() => {
+    const audio = new Audio(getAssetPath('/intro-song/Verka Serduchka New Year.mp3'));
+    audio.loop = true;
+    audio.volume = 1.0;
+    victoryAudioRef.current = audio;
+
+    // Запускаем музыку автоматически
+    audio.play().catch((error) => {
+      console.error('Failed to play victory music:', error);
+    });
+
+    // Останавливаем музыку при размонтировании компонента
+    return () => {
+      if (victoryAudioRef.current) {
+        victoryAudioRef.current.pause();
+        victoryAudioRef.current = null;
+      }
+    };
+  }, []);
   const sortedTeams = [...teams].sort((a, b) => b.score - a.score);
   const maxScore = sortedTeams[0]?.score;
   const winners = sortedTeams.filter(team => team.score === maxScore);
